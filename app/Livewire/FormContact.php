@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -22,8 +23,17 @@ class FormContact extends Component
         //Validation:
         $this->validate();
 
-        //Temporary storage in log file:
-        Log::info("Novo contato: " . $this->name . " - " . $this->email . " - " . $this->phone);
+        //Store contact in database:
+        Contact::firstOrCreate(
+            [
+                "name" => $this->name,
+                "email" => $this->email
+            ],
+
+            [
+                "phone" => $this->phone
+            ]
+        );
 
         //Clear form:
         $this->reset();
