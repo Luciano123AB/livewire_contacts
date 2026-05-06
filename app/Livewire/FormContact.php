@@ -23,9 +23,9 @@ class FormContact extends Component
 
         //Clear form:
         //Option 1:
-        $this->name = "";
-        $this->email = "";
-        $this->phone = "";
+        // $this->name = "";
+        // $this->email = "";
+        // $this->phone = "";
 
         //Option 2:
         $this->reset();
