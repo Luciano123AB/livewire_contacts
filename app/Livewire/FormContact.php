@@ -20,6 +20,15 @@ class FormContact extends Component
 
         //Temporary storage in log file:
         Log::info("Novo contato: " . $this->name . " - " . $this->email . " - " . $this->phone);
+
+        //Clear form:
+        //Option 1:
+        $this->name = "";
+        $this->email = "";
+        $this->phone = "";
+
+        //Option 2:
+        $this->reset();
     }
 
     public function render()
