@@ -11,6 +11,7 @@
                     <div class="col">Email: {{ $contact->email }}</div>
                     <div class="col">Phone: {{ $contact->phone }}</div>
                     <div class="col">
+                        <a href="{{ route("contacts.edit", ["id" => $contact->id]) }}" class="btn btn-sm btn-success">Edit</a>
                         <a href="{{ route("contacts.delete", ["id" => $contact->id]) }}" class="btn btn-sm btn-danger">Delete</a>
                     </div>
                 </div>
