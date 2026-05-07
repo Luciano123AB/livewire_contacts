@@ -33,24 +33,18 @@
             <button class="btn btn-secondary px-5">Save</button>
         </div>
             
-        @if ($error)
-            <div wire:key="success-{{ Str::uuid() }}" class="alert alert-danger text-center mt-3"
-                x-data="{ show: true }"
-                x-show="show"
-                x-init="setTimeout(() => show = false, 2000)"
-            >
-                {{ $error }}
-            </div>
-        @endif
+        <script>
+            window.addEventListener("notification", (event) => {
 
-        @if ($success)
-            <div wire:key="error-{{ Str::uuid() }}" class="alert alert-success text-center mt-3"
-                x-data="{ show: true }"
-                x-show="show"
-                x-init="setTimeout(() => show = false, 2000)"
-            >
-                {{ $success }}
-            </div>
-        @endif
+                let data = event.detail;
+
+                Swal.fire({
+                    position: data.position,
+                    icon: data.type,
+                    title: data.title,
+                    timer: 2000
+                })
+            });
+        </script>
     </form>
 </div>
