@@ -12,11 +12,15 @@ class Contacts extends Component
     public $contacts;
 
     public function mount() {
-        $this->contacts = Contact::all();
+        $this->updateContacts();
     }
 
     #[On("contactAdded")]
     public function updateCintactList() {
+        $this->updateContacts();
+    }
+
+    private function updateContacts() {
         $this->contacts = Contact::all();
     }
 
