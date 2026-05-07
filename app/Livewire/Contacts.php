@@ -11,9 +11,7 @@ class Contacts extends Component
     public $contacts;
 
     public function mount() {
-
         $this->contacts = Contact::all();
-
     }
 
     public function render()
